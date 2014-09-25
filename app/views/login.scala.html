@@ -1,0 +1,26 @@
+@(loginForm: Form[(String,String)])(implicit flash: Flash)
+
+@import helper._
+
+@main("Login Test"){
+    
+    @form(routes.Auth.authenticate){
+        
+        <h1>Sign In</h1>
+
+        @flash.get("success").map { message =>
+            <p class="success">
+                @message
+            </p>
+        }
+        <p>
+            <input type="email" name="email" placeholder="Email" id="email">
+        </p>
+        <p>
+            <input type="password" name="password" placeholder="Password" id="password">
+        </p>
+<p>
+            <button type="submit" id="loginbutton">Login</button>
+        </p>
+    }
+}
