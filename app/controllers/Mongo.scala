@@ -3,32 +3,39 @@ package controllers
 import play.api._
 import play.api.mvc._
 import play.api.libs.concurrent.Execution.Implicits.defaultContext
- 
 import views._
 import models._
-   
-import reactivemongo.api._  
+import reactivemongo.api._
 import reactivemongo.bson._
-   
-import play.api.libs.json._   
-    
+import play.api.libs.json._
 import play.modules.reactivemongo.MongoController
 import play.modules.reactivemongo.json.collection.JSONCollection   
+import play.api.data._
+import play.api.data.Forms._
     
 object Mongo extends Controller with MongoController{       
     
-    def usersCollection: JSONCollection = db.collection[JSONCollection]("test")
+    def users: JSONCollection = db.collection[JSONCollection]("users")
    
+  val userForm = Form(
+      mapping(
+        "email" -> text,
+        "password" -> text
+      )(User.apply)(User.unapply)
+    )    
+    
     def index = Action.async {
         
         val json = Json.obj("name" -> "Kit")           
         
-        usersCollection.insert(json).map(lastError =>
+        users.insert(json).map(lastError =>
             Ok("Mongo LastError: %s".format(lastError)))
        
         //usersCollection.save(User("Don@com","Dom","ppp")).map(lastError =>
         //    Ok("Mongo LastError: %s".format(lastError)))
-    }       
+    }  
+    
+       
        
 /*   
     def index = Action.async {

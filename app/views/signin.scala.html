@@ -1,0 +1,33 @@
+@(userForm: Form[User])(implicit flash: Flash)
+
+@import helper._
+
+@main("Login Test"){
+    
+    @form(routes.Auth.authenticate){
+        
+        <h1>Sign In</h1>
+
+        @flash.get("success").map { message =>
+            <p class="success">
+                @message
+            </p>
+        }
+        
+        @userForm.globalError.map{error =>
+              <p class="warning">@error.message</p>
+        }
+        <p>
+            <input type="email" name="email" placeholder="Email" id="email" value='@(userForm("email").value)'>
+        </p>
+        <p>
+            <input type="password" name="password" placeholder="Password" id="password">
+        </p>
+		<p>
+            <button type="submit" id="loginbutton">Login</button>
+        </p>
+        <p>
+        <a href="/signup">Sign Up</a>
+        </p>
+    }
+}

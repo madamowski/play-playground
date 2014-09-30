@@ -15,7 +15,8 @@ libraryDependencies ++= Seq(
   "org.webjars" % "bootstrap" % "3.2.0",
   "org.webjars" % "angularjs" % "1.2.19",
   "org.reactivemongo" %% "reactivemongo" % "0.11.0-SNAPSHOT",
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.0-SNAPSHOT"
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.0-SNAPSHOT",
+  "com.github.t3hnar" %% "scala-bcrypt" % "2.4"
 //  "org.webjars" % "dygraphs" % "1.0.1-1",
 //  jdbc,
 //  anorm,
