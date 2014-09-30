@@ -78,7 +78,7 @@ object Auth extends Controller with MongoController{
         //Ok(html.index)
       }
  
-    def logout = Action {
+    def signout = Action {
         Redirect(routes.Auth.signin).withNewSession.flashing(
             "success" -> "You are now logged out"
         )

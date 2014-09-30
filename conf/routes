@@ -8,7 +8,7 @@ GET     /signin          controllers.Auth.signin
 POST    /signin          controllers.Auth.authenticate
 GET     /signup          controllers.Auth.signup
 POST    /create          controllers.Auth.create
-GET     /logout          controllers.Auth.logout
+GET     /signout         controllers.Auth.signout
 
 #GET     /mongo          controllers.Mongo.index
 #GET     /users/signup   controllers.Mongo.signup
