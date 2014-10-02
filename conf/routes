@@ -16,6 +16,9 @@ POST    /users           controllers.UserController.createUser
 PUT     /users/:id       controllers.UserController.updateUser(id: String)
 DELETE  /users/:id       controllers.UserController.deleteUser(id: String)
 
+GET     /gettoken           controllers.RestAuth.getToken
+GET     /settoken           controllers.RestAuth.setToken
+
 #GET     /mongo          controllers.Mongo.index
 #GET     /users/signup   controllers.Mongo.signup
 #GET     /users/create   controllers.Mongo.create
