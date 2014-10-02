@@ -1,4 +1,4 @@
-name := """sbt-play-template"""
+name := """play-playground"""
 
 version := "1.0"
     
