@@ -1,0 +1,1 @@
+web: target/universal/stage/bin/play-playground -Dhttp.port=$PORT -Dmongodb.uri=$MONGOHQ_URL
