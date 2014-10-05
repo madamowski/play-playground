@@ -23,6 +23,12 @@ GET     /settoken           controllers.RestAuth.setToken
 #GET     /users/signup   controllers.Mongo.signup
 #GET     /users/create   controllers.Mongo.create
 
+GET     /items           controllers.ItemController.index
+GET		/newItem	     controllers.ItemController.newitem
+GET		/item			 controllers.ItemController.item(id: String)
+POST    /addItem         controllers.ItemController.add
+POST    /addItemPicture  controllers.ItemController.addPicture(id: String)
+GET     /delete          controllers.ItemController.delete(id: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file   controllers.Assets.at(path="/public", file)

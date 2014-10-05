@@ -1,0 +1,18 @@
+@(items: List[Item])
+
+@main("Items"){
+    <div>
+        <a href="@routes.ItemController.newitem">Add Item</a>
+    </div>
+    <ul>
+    @if(!items.isEmpty){
+    	@items.map { item => 
+    		<li>
+    		<a href="@routes.ItemController.item(item._id.get.stringify)">@item.name</a> 
+    		- <a href="@routes.ItemController.delete(item._id.get.stringify)">delete</a>
+    		</li>    	
+    	}
+    }
+    </ul>
+
+}

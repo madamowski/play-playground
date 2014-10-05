@@ -1,0 +1,44 @@
+@(itemForm: Form[Item])(implicit flash: Flash)
+
+@import helper._
+
+@main("Items"){
+    
+    @form(routes.ItemController.add){
+        
+        <h1>Add Item</h1>
+
+        @flash.get("success").map { message =>
+            <p class="success">
+                @message
+            </p>
+        }
+        
+        @itemForm.globalError.map{error =>
+              <p class="warning">@error.message</p>
+        }
+        <p>
+            <input type="text" name="name" placeholder="Name" id="name" value='@(itemForm("name").value)'>
+        </p>
+		<p>
+            <button type="submit" id="addbutton">Add</button>
+        </p>
+    }
+    
+    @form(action = routes.ItemController.addPicture("1"), 'enctype -> "multipart/form-data"){
+        
+        <h1>Sign In</h1>
+
+        @flash.get("success").map { message =>
+            <p class="success">
+                @message
+            </p>
+        }
+       
+       <input type="file" name="file">
+       
+		<p>
+            <button type="submit" id="uploadButton">Upload</button>
+        </p>
+    }
+}
